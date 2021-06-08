@@ -44,8 +44,9 @@ langChooseResOp1="(1) 1920x1080 Display"
 langChooseResOp2="(2) 1920x1080 Display (use 1424x802, fix underscaled after sleep)"
 langChooseResOp3="(3) 1920x1200 Display"
 langChooseResOp4="(4) 2560x1440 Display"
-langChooseResOp5="(5) 3000x2000 Display"
-langChooseResOpCustom="(6) Manual input resolution"
+langChooseResOp5="(5) 3440x1440 Display"
+langChooseResOp6="(6) 3000x2000 Display"
+langChooseResOpCustom="(7) Manual input resolution"
 
 if [[ "${systemLanguage}" == "zh_CN" ]]; then
     langDisplay="显示器"
@@ -78,8 +79,9 @@ if [[ "${systemLanguage}" == "zh_CN" ]]; then
     langChooseResOp2="(2) 1920x1080 显示屏 (使用 1424x802 分辨率，修复睡眠唤醒后的屏幕缩小问题)"
     langChooseResOp3="(3) 1920x1200 显示屏"
     langChooseResOp4="(4) 2560x1440 显示屏"
-    langChooseResOp5="(5) 3000x2000 显示屏"
-    langChooseResOpCustom="(6) 手动输入分辨率"
+    langChooseResOp5="(5) 3440x1440 显示屏"
+    langChooseResOp5="(6) 3000x2000 显示屏"
+    langChooseResOpCustom="(7) 手动输入分辨率"
 fi
 
 function get_edid() {
@@ -369,6 +371,7 @@ CCC
     echo ${langChooseResOp3}
     echo ${langChooseResOp4}
     echo ${langChooseResOp5}
+    echo ${langChooseResOp6}
     echo ${langChooseResOpCustom}
     echo ""
 
@@ -399,12 +402,18 @@ CCC
         create_res_4 2048x1152 1920x1080 1680x945 1440x810 1280x720 1024x576 960x540 840x472 800x450 640x360
         ;;
     5)
+        create_res_1 3440x1440 2752x1152 2580x1080 2365x990 1935x810 1720x720
+        create_res_2 1360x765 1280x800 1280x720 1024x576 960x600 960x540 640x360
+        create_res_3 960x540 840x472 800x450 720x405 640x360 576x324 512x288 420x234 400x225 320x180
+        create_res_4 2752x1152 2580x1080 2258x945 1935x810 1720x720 1376x576 1290x540 1128x472 1075x450 860x360
+        ;;
+    6)
         create_res_1 3000x2000 2880x1920 2250x1500 1920x1280 1680x1050 1440x900 1280x800 1024x640
         create_res_2 1280x800 1280x720 960x600 960x540 640x360
         create_res_3 840x472 800x450 720x405 640x360 576x324 512x288 420x234 400x225 320x180
         create_res_4 1920x1280 1680x1050 1440x900 1280x800 1024x640 960x540 840x472 800x450 640x360
         ;;
-    6)
+    7)
         custom_res
         create_res_2 1360x765 1280x800 1280x720 960x600 960x540 640x360
         create_res_3 840x472 800x450 720x405 640x360 576x324 512x288 420x234 400x225 320x180
